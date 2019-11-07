@@ -39,25 +39,25 @@ const drawArea = (grid, area, firstPoint, secondPoint) => {
     return grid
 }
 
-const gridArea = (firstPoint, secondPoint) => {
-    const gridArea = [
-        [0, 0, 0, 0],
-        [0, 0, 0, 0],
-        [0, 0, 0, 0],
-        [0, 0, 0, 0]
-    ]
+export const createGrid = (columns, rows) => {
+    let grid = []
 
+    for (let i = 0; i < rows; i++) {
+        grid.push((new Array(columns)).fill(0))
+    }
+
+    return grid
+}
+
+export const gridArea = (firstPoint, secondPoint, grid) => {
     const gridSize = {
-        x: gridArea[0].length,
-        y: gridArea.length
+        x: grid[0].length,
+        y: grid.length
     }
 
     validateCoords(firstPoint, gridSize)
     validateCoords(secondPoint, gridSize)
 
     const areaSize = getAreaSize(firstPoint, secondPoint)
-    const newGrid = drawArea(gridArea, areaSize, firstPoint, secondPoint)
-    console.log(newGrid, areaSize)
+    return drawArea(grid, areaSize, firstPoint, secondPoint)
 }
-
-gridArea({ x: 1, y: 1 },{ x: 3, y: 1 })
