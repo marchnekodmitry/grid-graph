@@ -1,4 +1,4 @@
-const getAreaSize = (firstPoint, secondPoint) => {
+export const getAreaSize = (firstPoint, secondPoint) => {
     const from = {
         x: Math.min(firstPoint.x, secondPoint.x),
         y: Math.min(firstPoint.y, secondPoint.y)
@@ -14,7 +14,7 @@ const getAreaSize = (firstPoint, secondPoint) => {
     }
 }
 
-const validateCoords = (point, gridSize) => {
+export const validateCoords = (point, gridSize) => {
     if (point.x < 0 || point.x >= gridSize.x) {
         throw new Error(`Invalid value x in point ${point}`)
     }
@@ -23,7 +23,7 @@ const validateCoords = (point, gridSize) => {
     }
 }
 
-const drawArea = (grid, area, firstPoint, secondPoint) => {
+export const drawArea = (grid, area, firstPoint, secondPoint) => {
     area = {...area}
     grid = grid.map(row => ([...row]))
 
